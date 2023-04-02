@@ -24,4 +24,15 @@ describe('MasterService', () => {
     let service = new MasterService(fake);
     expect(service.getValue()).toBe('other value');
   });
+
+  it('should call getValue from fake object', () => {
+    const valueServiceSpy = jasmine.createSpyObj('ValueService', ['getValue']);
+
+    valueServiceSpy.getValue.and.returnValue('fake value');
+
+    let service = new MasterService(valueServiceSpy);
+    expect(service.getValue()).toBe('fake value');
+    expect(valueServiceSpy.getValue).toHaveBeenCalled();
+    expect(valueServiceSpy.getValue).toHaveBeenCalledTimes(1);
+  });
 });
