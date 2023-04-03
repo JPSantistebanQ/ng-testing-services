@@ -6,7 +6,7 @@ import { PicoPreviewComponent } from './components/pico-preview/pico-preview.com
 
 const routes: Routes = [
   {
-    path: 'Products',
+    path: 'products',
     component: ProductsComponent,
   },
   {
