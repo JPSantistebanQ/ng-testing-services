@@ -81,7 +81,7 @@ export class ProductsService {
         if (error.status === HttpStatusCode.Unauthorized) {
           return throwError('No estas permitido');
         }
-        return throwError('Ups algo salio mal');
+        return throwError(() => 'Ups algo salio mal');
       })
     );
   }
